@@ -98,6 +98,7 @@ public class GravitySensorManager implements SensorEventListener {
 
         if (stat != mStat) {
             mStat = stat;
+            Log.e(TAG, "stat: " + stat);
             switch (stat) {
                 case 1:
                     Log.d(TAG, "onLandscape");
