@@ -96,8 +96,6 @@ public class GravitySensorManager implements SensorEventListener {
             time = second;
         }
 
-        Log.e("mStat:" + mStat, "stat: " + stat);
-
         if (stat != mStat) {
             mStat = stat;
             switch (stat) {
