@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GravitySensorManager.getInstance(this).setIsAutoRotate(false).setGravitySensorListener(new GravitySensorManager.GravitySensorListener() {
+        GravitySensorManager.getInstance(this).setGravitySensorListener(new GravitySensorManager.GravitySensorListener() {
             @Override
             public void onLandscape() {
 

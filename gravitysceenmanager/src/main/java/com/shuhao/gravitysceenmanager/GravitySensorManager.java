@@ -1,6 +1,8 @@
 package com.shuhao.gravitysceenmanager;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -24,7 +26,7 @@ public class GravitySensorManager implements SensorEventListener {
 
     public Calendar mCalendar;
 
-    public boolean mIsAutoRotate;
+    public boolean mIsAutoRotate = true;
 
     long time = -1;
 
@@ -101,18 +103,30 @@ public class GravitySensorManager implements SensorEventListener {
             Log.e(TAG, "stat: " + stat);
             switch (stat) {
                 case 1:
+                    if (mIsAutoRotate) {
+                        ((Activity) mContext).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+                    }
                     Log.d(TAG, "onLandscape");
                     gsl.onLandscape();
                     break;
                 case 2:
+                    if (mIsAutoRotate) {
+                        ((Activity) mContext).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+                    }
                     Log.d(TAG, "onFlipLandscape");
                     gsl.onFlipLandscape();
                     break;
                 case 3:
+                    if (mIsAutoRotate) {
+                        ((Activity) mContext).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+                    }
                     Log.d(TAG, "onPortpait");
                     gsl.onPortpait();
                     break;
                 case 4:
+                    if (mIsAutoRotate) {
+                        ((Activity) mContext).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+                    }
                     Log.d(TAG, "onFlipPortpait");
                     gsl.onFlipPortpait();
                     break;
